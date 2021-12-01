@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full-vnc:latest
+FROM evlon/workspace-full-vnc:latest
 
 USER gitpod
 

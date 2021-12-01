@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full
+FROM evlon/workspace-full
 
 # add your tools here
 USER gitpod

@@ -28,7 +28,11 @@ $DOCKER_PASS
 EOF
 
 cd "$DIR"
-dazzle build --repository gitpod/dazzle-wsfull-build --output-test-xml results.xml -t "$IMAGE_NAME:$BUILD_TAG" -f "$DOCKERFILE" .
+
+echo dazzle build --repository evlon/dazzle-wsfull-build --output-test-xml results.xml -t "$IMAGE_NAME:$BUILD_TAG" -f "$DOCKERFILE" .
+
+
+/dazzle/dazzle build --repository evlon/dazzle-wsfull-build --output-test-xml results.xml -t "$IMAGE_NAME:$BUILD_TAG" -f "$DOCKERFILE" .
 
 if [ "$CIRCLE_BRANCH" != "master" ]; then
   # Work in progress: Tag the image ":branch-X" and push it to Docker Hub.

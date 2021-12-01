@@ -34,7 +34,7 @@ It briefly explains:
 > You can test this temporary image by editing one of your projects' [.gitpod.yml](https://www.gitpod.io/docs/config-gitpod-file/) file like so (maybe on a separate branch):
 >
 > ```yml
-> image: gitpod/workspace-full:branch-pr-123
+> image: evlon/workspace-full:branch-pr-123
 > ```
 >
 > Finally, once this change is committed and pushed to your repository, you can open your test repository or branch in Gitpod to test the project with your new image.
