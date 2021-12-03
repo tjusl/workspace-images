@@ -1,4 +1,4 @@
-FROM evlon/workspace-full
+FROM cmict/workspace-full
 
 # add your tools here
 USER gitpod

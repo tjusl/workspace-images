@@ -1,4 +1,4 @@
-FROM evlon/workspace-full-vnc
+FROM cmict/workspace-full-vnc
 
 # Install the latest rr.
 RUN __RR_VERSION__="5.5.0" \

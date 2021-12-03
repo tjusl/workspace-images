@@ -1,4 +1,4 @@
-FROM evlon/workspace-full
+FROM cmict/workspace-full
 
 RUN bash -cl "cargo install wasm-pack cargo-wasm cargo-generate \
     && curl -fsSL https://wasmtime.dev/install.sh  | bash; \

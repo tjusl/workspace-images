@@ -1,4 +1,4 @@
-image: evlon/workspace-full
+image: cmict/workspace-full
 
 tasks:
   - command: docker

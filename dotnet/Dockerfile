@@ -1,4 +1,4 @@
-FROM evlon/workspace-full:latest
+FROM cmict/workspace-full:latest
 
 USER gitpod
 

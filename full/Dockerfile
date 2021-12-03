@@ -1,5 +1,5 @@
 # Dazzle do not supports ARG TRIGGER_REBUILD=2
-FROM evlon/workspace-base:latest
+FROM cmict/workspace-base:latest
 
 RUN echo "ws full starts"
 
