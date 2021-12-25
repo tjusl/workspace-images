@@ -78,6 +78,8 @@ USER gitpod
 ENV GO_VERSION=1.17.3
 ENV GOPATH=$HOME/go-packages
 ENV GOROOT=$HOME/go
+# Add custom GOPROXY
+ENV GOPATH=http://package.onecode.ict.cmcc/repository/go-proxy,direct
 ENV PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 RUN curl -fsSL https://storage.googleapis.com/golang/go$GO_VERSION.linux-amd64.tar.gz | tar xzs && \
 # install VS Code Go tools for use with gopls as per https://github.com/golang/vscode-go/blob/master/docs/tools.md
