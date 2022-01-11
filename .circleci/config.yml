@@ -15,7 +15,7 @@ jobs:
             export DEBIAN_FRONTEND=noninteractive
             sudo apt-get update &&sudo apt-get upgrade && sudo apt-get install -y shellcheck pip git
             sudo pip install pre-commit
-            sudo pre-commit run --all-files
+            sudo pre-commit run --all-files --skip-string-normalization
 
   workspace-base:
     docker:
