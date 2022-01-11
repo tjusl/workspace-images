@@ -13,7 +13,7 @@ jobs:
           name: Run pre-commit checks
           command: |
             export DEBIAN_FRONTEND=noninteractive
-            apt update && apt install -y shellcheck pre-commit git
+            apt update && apt install -y shellcheck pre-commit git openssh-client
             pre-commit run --all-files
 
   workspace-base:
