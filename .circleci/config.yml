@@ -4,7 +4,7 @@ jobs:
   validate-changes:
     docker:
       # pre-commit package is included since 20.10
-      - image: ubuntu:21.10
+      - image: cimg/base:2022.01-20.04
     steps:
       - checkout
       - attach_workspace:
@@ -13,7 +13,7 @@ jobs:
           name: Run pre-commit checks
           command: |
             export DEBIAN_FRONTEND=noninteractive
-            sudo apt update &&sudo apt upgrade && sudo apt install -y shellcheck pre-commit git
+            sudo apt-get update &&sudo apt-get upgrade && sudo apt-get install -y shellcheck pre-commit git
             sudo pre-commit run --all-files
 
   workspace-base:
