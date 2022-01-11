@@ -3,8 +3,8 @@ version: 2.1
 jobs:
   validate-changes:
     docker:
-      # pre-commit package is included since 20.10
-      - image: ubuntu:21.10
+      # pre-commit package is included since 20.10,change image to  circleci image
+      - image: cimg/base:2022.01-20.04
     steps:
       - checkout
       - attach_workspace:
