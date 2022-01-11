@@ -4,7 +4,7 @@ jobs:
   validate-changes:
     docker:
       # pre-commit package is included since 20.10,change image to  circleci image
-      - image: ubuntu:21.10
+      - image: cimg/base:2022.01-20.04
     steps:
       - checkout
       - attach_workspace:
@@ -13,8 +13,8 @@ jobs:
           name: Run pre-commit checks
           command: |
             export DEBIAN_FRONTEND=noninteractive
-            apt update && apt install -y shellcheck pre-commit git openssh-client
-            pre-commit run --all-files
+            sudo apt update && sudo apt install -y shellcheck pre-commit git openssh-client
+            sudo pre-commit run --all-files
 
   workspace-base:
     docker:
