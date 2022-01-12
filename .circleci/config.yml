@@ -4,8 +4,12 @@ jobs:
   validate-changes:
     docker:
       # pre-commit package is included since 20.10
-      - image: cimg/base:2022.01-20.04
+      - image: ubuntu:22.04
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - attach_workspace:
           at: .
@@ -13,14 +17,17 @@ jobs:
           name: Run pre-commit checks
           command: |
             export DEBIAN_FRONTEND=noninteractive
-            sudo apt-get update &&sudo apt-get upgrade && sudo apt-get install -y shellcheck pip git
-            sudo pip install pre-commit pre-commit-hooks
-            sudo pre-commit run --all-files
+            apt update  && apt install -y shellcheck pre-commit git
+            pre-commit run --all-files
 
   workspace-base:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -39,6 +46,10 @@ jobs:
     docker:
       - image: csweichel/dazzle:latest
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -68,6 +79,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -86,6 +101,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -100,6 +119,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -114,6 +137,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -128,6 +155,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -142,6 +173,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -156,6 +191,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -170,6 +209,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -184,6 +227,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -197,6 +244,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -210,6 +261,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
@@ -224,6 +279,10 @@ jobs:
     docker:
       - image: docker:stable
     steps:
+      - run:
+          name: Install git for circleci
+          command: |
+            apt install -y git
       - checkout
       - setup_remote_docker
       - attach_workspace:
