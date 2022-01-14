@@ -12,28 +12,18 @@ RUN __RR_VERSION__="5.5.0" \
 # https://firefox-source-docs.mozilla.org/setup/linux_build.html#one-line-bootstrapping
 ENV SHELL=/bin/bash
 RUN sudo apt-get update \
- && sudo apt-get install -y libpython3-dev uuid  expect \
+ && sudo apt-get install -y libpython3-dev uuid  \
  && sudo mkdir -p /workspace/.pip-modules && sudo chown gitpod:gitpod /workspace/.pip-modules \
+ && ln -sf /home/gitpod/.cargo/bin/rustup /workspace/.cargo/bin/ \
  && rustup update stable \
  && ln -sf /home/gitpod/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/* /home/gitpod/.cargo/bin/ \
  && ln -sf /home/gitpod/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/* /workspace/.cargo/bin/ \
  && git clone --progress --single-branch --depth=1 https://github.com/mozilla/gecko-dev/ /tmp/gecko \
  && cd /tmp/gecko \
- && expect << EOF
-    set timeout 600
-    spawn ./mach bootstrap --application-choice=browser
-    expect "+c to abort."          {send "\r"}
-    set timeout 600
-    expect "(Yn):"                  {send "Y\r"}
-    set timeout 600
-    expect "(Yn):"                  {send "Y\r"}
-    set timeout 600
-    expect "(Yn):"                  {send "Y\r"}
-    set timeout 600
-    expect "(Yn):"                  {send "Y\r"}
- EOF \
+ && echo -e "\rY\rY\rY\rY\r"|./mach bootstrap --application-choice=browser \
  && sudo apt-get remove -y nodejs nodejs-doc \
  && sudo rm -rf /tmp/gecko /var/lib/apt/lists/*
+
 
 # Install moz-phab
 ENV SHELL=/bin/bash
